@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.time :lastrefreshdate
       t.text :accestoken
 
-
+      t.omniauthable
       t.timestamps
     end
 
