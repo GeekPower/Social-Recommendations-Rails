@@ -1,4 +1,217 @@
-<p>Hello, Ruby!</p>
-<p> My movie list:</p>
-<%= link_to "Sign in with Facebok", user_omniauth_authorize_path(:facebook) %>
-<%#= current_user.email %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<%= stylesheet_link_tag "style" %>
+<title>Give meh something to do...</title>
+</head>
+
+<body>
+<div class="wrapper"> <!-- Wrapper starts -->
+<div class="top_menu round_corner">
+	<!-- TOP MENU ITEMS
+		Usage of member:
+		
+	<a class="top_menu_a" href="/path/to/link" target="TARGET">
+	<div class="top_menu_item">
+		CATEGORY NAME
+	</div>
+	</a>
+	
+	-->
+	
+	<div class="top_menu_item" style="float:left;margin-left:20px;">
+		Logo
+	</div>
+	<a class="top_menu_a">
+	<div class="top_menu_item">
+		Category 1
+	</div>
+	</a>
+	<div class="top_menu_separator">
+		|
+	</div>
+	<a class="top_menu_a">
+	<div class="top_menu_item">
+		Category 2
+	</div>
+	</a>
+	<div class="top_menu_separator">
+		|
+	</div>
+	<a class="top_menu_a">
+	<div class="top_menu_item">
+		Category 3
+	</div>
+	</a>
+	<div class="top_menu_separator">
+		|
+	</div>
+	<a class="top_menu_a">
+	<div class="top_menu_item">
+		Category 4
+	</div>
+	</a>
+	<div class="top_menu_separator">
+		|
+	</div>
+	<a class="top_menu_a">
+	<div class="top_menu_item">
+		Category 5
+	</div>
+	</a>
+
+	<%= link_to "
+	<div class="top_menu_item" style="float:right;margin-right:20px">
+		Facebook
+	</div> ", user_omniauth_authorize_path(:facebook) %>
+</div>
+<div class="sort_menu">
+	<!-- SORT MENU ITEMS
+		Usage of member:
+		
+	<a class="sort_menu_a" href="/path/to/link" target="TARGET">
+	<div class="sort_menu_item">
+		SORT NAME
+	</div>
+	</a>
+	
+	-->
+	<div class="sort_menu_item">
+		Sort by:
+	</div>
+	<a class="sort_menu_a">
+	<div class="sort_menu_item">
+		Popularity
+	</div>
+	</a>
+	<a class="sort_menu_a">
+	<div class="sort_menu_item">
+		Last 24 hours
+	</div>
+	</a>
+	<a class="sort_menu_a">
+	<div class="sort_menu_item">
+		Last 7 days
+	</div>
+	</a>
+	<a class="sort_menu_a">
+	<div class="sort_menu_item">
+		All Time
+	</div>
+	</a>
+</div>
+
+<div class="box_article">
+	<div class="spacer">&nbsp;</div>
+	<div class="box_likes">
+		<div class="likes_mini_box round_corner">
+			SR Points <br />
+			12345
+		</div>
+		Facebook <br />
+		Tweets <br />
+	</div>
+	<div class="box_preview">
+		<div class="box_head">
+			G.O.P. Pushes to Deregulate Environment at State Level
+		</div>
+		<div class="box_preview_text">
+		<p>Your movie list: </p>
+		<%#= current_user.email %>
+		</div>
+	</div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="box_article">
+	<div class="spacer">&nbsp;</div>
+	<div class="box_likes">
+		<div class="likes_mini_box round_corner">
+			SR Points <br />
+			12345
+		</div>
+		Facebook <br />
+		Tweets <br />
+	</div>
+	<div class="box_preview">
+		<div class="box_head">
+			G.O.P. Pushes to Deregulate Environment at State Level
+		</div>
+		<div class="box_preview_text">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
+		</div>
+	</div>
+</div><div class="clear">&nbsp;</div>
+<div class="box_article">
+	<div class="spacer">&nbsp;</div>
+	<div class="box_likes">
+		<div class="likes_mini_box round_corner">
+			SR Points <br />
+			12345
+		</div>
+		Facebook <br />
+		Tweets <br />
+	</div>
+	<div class="box_preview">
+		<div class="box_head">
+			G.O.P. Pushes to Deregulate Environment at State Level
+		</div>
+		<div class="box_preview_text">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
+		</div>
+	</div>
+</div><div class="clear">&nbsp;</div>
+<div class="box_article">
+	<div class="spacer">&nbsp;</div>
+	<div class="box_likes">
+		<div class="likes_mini_box round_corner">
+			SR Points <br />
+			12345
+		</div>
+		Facebook <br />
+		Tweets <br />
+	</div>
+	<div class="box_preview">
+		<div class="box_head">
+			G.O.P. Pushes to Deregulate Environment at State Level
+		</div>
+		<div class="box_preview_text">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
+		</div>
+	</div>
+</div><div class="clear">&nbsp;</div>
+<div class="box_article">
+	<div class="spacer">&nbsp;</div>
+	<div class="box_likes">
+		<div class="likes_mini_box round_corner">
+			SR Points <br />
+			12345
+		</div>
+		Facebook <br />
+		Tweets <br />
+	</div>
+	<div class="box_preview">
+		<div class="box_head">
+			G.O.P. Pushes to Deregulate Environment at State Level
+		</div>
+		<div class="box_preview_text">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
+		</div>
+	</div>
+</div>
+
+
+<div class="footer">
+	<a href="#"> Home</a>
+	|
+	<a href="#"> Terms of Service</a>
+	|
+	<a href="#"> Privacy Policy</a>
+	|
+	<a href="#"> Contact</a>
+</div>
+
+
+</div> <!-- Wrapper ends -->
+</body>
+</html>
