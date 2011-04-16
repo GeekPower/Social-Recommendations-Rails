@@ -183,8 +183,8 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook, '153240188071774', 'c065d25f325b9c06dce1770b0f4c44fb',
     :site              => 'https://graph.facebook.com',
-    :authorize_path    => '/oauth/authorize',
-    :access_token_path => '/oauth/access_token',
+    :authorize_path    => '/omniauth/authorize',
+    :access_token_path => '/omniauth/access_token',
     :scope => %w(email)
 
   # ==> Warden configuration

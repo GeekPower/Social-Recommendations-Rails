@@ -18,5 +18,13 @@ class User < ActiveRecord::Base
       # Create an user with a stub password.
       User.create!(:name => data["name"], :email => data["email"], :password => Devise.friendly_token)
     end
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]
+        user.email = data["email"]
+      end
+    end
+  end
+
   end
 end
