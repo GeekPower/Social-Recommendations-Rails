@@ -7,7 +7,8 @@ class PagesController < ApplicationController
 #	before_filter :authenticate_user!
 	def index
 		#@my_movie = Movie.where("titlu = ?", "Lord of")[0]
-#		id = get_logged_in_user()
+#id = get_logged_in_user()
+		puts "Session" + session.to_s
 
 		#@my_movie.titlu = "Lord of the Rings"
 		#@my_movie.link = "http://imbd.com"

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :remember_me
+  attr_accessible :email, :remember_me, :accestoken
 
   has_many :links
 
@@ -13,25 +13,22 @@ class User < ActiveRecord::Base
     # Get the user email info from Facebook for sign up
     # You'll have to figure this part out from the json you get back
 
-
-
-    #data = ActiveSupport::JSON.decode(access_token.to_s)
+     data = access_token["extra"]["user_hash"]
 
     if user = User.find_by_email(access_token["user_info"]["email"])
       user
     else
       # Create an user with a stub password.
-      User.create!(:name => access_token["user_info"]["name"], :email => access_token["user_info"]["email"], :password => Devise.friendly_token)
+      User.create!(:name => access_token["user_info"]["name"], :email => access_token["user_info"]["email"], :password => Devise.friendly_token, :accestoken => access_token["credentials"]["token"])
     end
-
-
-  #def self.new_with_session(params, session)
-  #  super.tap do |user|
-  #    if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]
-  #      user.email = data["email"]
-  #    end
-  #  end
-  #end
-
   end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]
+        user.email = data["email"]
+      end
+    end
+  end
+
 end
