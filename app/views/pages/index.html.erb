@@ -62,7 +62,11 @@
 	</a>
 	
 	<div class="top_menu_item" style="float:right;margin-right:20px">
-	<%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
+	<% if @user_logged_in == false  %>
+		<%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
+	<% else %>
+		<%= link_to "Sign out", destroy_user_session_path %>
+	<% end %>
 	</div>
 </div>
 <div class="sort_menu">
