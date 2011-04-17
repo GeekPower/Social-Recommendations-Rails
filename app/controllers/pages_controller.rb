@@ -19,6 +19,7 @@ class PagesController < ApplicationController
 	def friends
 		@my_friends = ""
 		@friends_likes = ""
+		link = ""
 		id = 'me'
 	 	token = "2227470867|2.sHXg2t7r7fII2_wNKrJIYw__.3600.1303034400.0-100001135457346|fK_BWPMbFMFaF6t08N2PxCbNG_E"
    		url = "https://graph.facebook.com/#{id}/friends?access_token=#{URI.encode(token)}"
@@ -34,7 +35,15 @@ class PagesController < ApplicationController
                 	  parsed_l = JSON.parse(l)
 			  parsed_l['data'].each {|like|
 			   if like['category'] == 'Website'
-		  	   	@friends_likes << friend['name'] << "\t" << friend['id'] << "\t" << like['name'] << "\t" << like['id'] << "\t" << like['category'] << "\n"	
+				site_url = "https://graph.facebook.com/#{URI.encode(like['id'])}/"
+				open(URI.encode(site_url)) {|s_url|
+				  s_url.each_line{ |s|
+				    puts s
+				    parsed_s = JSON.parse(s)
+				    link = parsed_s['link']
+				  }
+				}
+		  	   	@friends_likes << friend['name'] << "\t" << friend['id'] << "\t" << like['name'] << "\t" << like['id'] << "\t" << link << "\n"	
 			   end
                          }
 	                }
