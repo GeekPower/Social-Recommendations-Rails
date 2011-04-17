@@ -3,9 +3,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # You need to implement the method below in your model
     @user = User.find_for_facebook_oauth(env["omniauth.auth"], current_user)
 
+    #puts "ENV=" + env["omniauth.auth"]["credentials"]["token"]
+
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
-      session[:email] = "ping.gabi@gmail.com"
+      session[:access_token] = env["omniauth.auth"]["credentials"]["token"]
       sign_in_and_redirect @user, :event => :authentication
     else
       session["devise.facebook_data"] = env["omniauth.auth"]
