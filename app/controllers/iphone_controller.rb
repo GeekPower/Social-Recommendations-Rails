@@ -7,6 +7,7 @@ class IphoneController < ApplicationController
     root = '<articles>'
     endroot = '</articles>'
     @xml = header + root
+    puts @xml
     for i in 1..5 do
 	@xml += '<article>'
 	@xml += '<title>'
@@ -21,7 +22,9 @@ class IphoneController < ApplicationController
   	@xml += '</article>'
     end
     @xml += endroot
+    puts "XML=" + @xml
     respond_to do |format|
+    	format.html
 	format.xml { render :xml => @xml }
     end
   end
