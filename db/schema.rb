@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110417093114) do
+ActiveRecord::Schema.define(:version => 20110417111628) do
 
   create_table "links", :force => true do |t|
     t.datetime "created_at"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110417093114) do
     t.text     "link"
     t.string   "name"
     t.string   "facebookid"
+    t.integer  "user_id"
   end
 
   create_table "movies", :force => true do |t|
