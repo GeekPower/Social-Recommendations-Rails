@@ -185,7 +185,7 @@ Devise.setup do |config|
     :site              => 'https://graph.facebook.com',
     :authorize_path    => '/omniauth/authorize',
     :access_token_path => '/omniauth/access_token',
-    :scope => %w(email)
+    :scope => %w(email, user_likes, friends_likes)
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
