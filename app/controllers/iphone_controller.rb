@@ -17,7 +17,7 @@ class IphoneController < ApplicationController
 	@xml += data['name']
 	@xml += '</title>'
 	@xml += '<date>'
-	@xml += data['created_at']
+	@xml += data['created_at'].to_s
 	@xml += '</date>'
 	@xml += '<link>'
 	@xml += data['link']

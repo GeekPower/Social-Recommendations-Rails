@@ -28,7 +28,7 @@ class PagesController < ApplicationController
 			redirect_to :root
 		end
 
-   		url = "https://graph.facebook.com/#{id}/friends?access_token=#{URI.encode(token)}&limit=10"
+   		url = "https://graph.facebook.com/#{id}/friends?access_token=#{URI.encode(token)}"
 
 		puts "A intrat in controller"
 
