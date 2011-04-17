@@ -29,14 +29,14 @@ class PagesController < ApplicationController
 		link = ""
 
 		id = 'me'
-	 	token = "2227470867|2.sHXg2t7r7fII2_wNKrJIYw__.3600.1303034400.0-100001135457346|fK_BWPMbFMFaF6t08N2PxCbNG_E"
+	 	#token = "2227470867|2.sHXg2t7r7fII2_wNKrJIYw__.3600.1303034400.0-100001135457346|fK_BWPMbFMFaF6t08N2PxCbNG_E"
 		if session["access_token"]
 			token = session["access_token"]
 		else
 			redirect_to :root
 		end
 
-   		url = "https://graph.facebook.com/#{id}/friends?access_token=#{URI.encode(token)}"
+   		url = "https://graph.facebook.com/#{id}/friends?access_token=#{URI.encode(token)}&limit=10"
 
 		puts "A intrat in controller"
 
@@ -44,10 +44,10 @@ class PagesController < ApplicationController
 		  f.each_line do |line|
 	  	    parsed = JSON.parse(line)
 	  	    parsed['data'].each do |friend|
-	    	      @my_friends = @my_friends << friend['name'] << " " << friend['id'] << "\n"
+	    	      @my_friends = @my_friends + friend['name'] + "," + friend['id'] + "|"
 		      #filter = "-1 week"
 		      filter = ""
-	    	      friend_url = "https://graph.facebook.com/#{friend['id']}/likes?since=#{filter}&access_token=#{URI.encode(token)}"
+	    	      friend_url = "https://graph.facebook.com/#{friend['id']}/likes?access_token=#{URI.encode(token)}"
 		      puts "Friend url=" + friend_url
 	    	      open(URI.encode(friend_url)){|fr_url|
 	      		fr_url.each_line{|l|
@@ -62,7 +62,8 @@ class PagesController < ApplicationController
 				    link = parsed_s['link']
 				  }
 				}
-		  	   	@friends_likes << friend['name'] + "," + friend['id'] + "," + like['name'] + "," + like['id'] + "," +  link
+		  	   	@friends_likes = @friends_likes +  friend['name'] + "," + friend['id'] + "," + like['name'] + "," + like['id'] + "," +  link + "|"
+				puts "Link" + link
 			   end
                          }
 	                }
