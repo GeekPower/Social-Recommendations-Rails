@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :remember_me, :accestoken
 
+  has_many :links
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     # Get the user email info from Facebook for sign up
     # You'll have to figure this part out from the json you get back
