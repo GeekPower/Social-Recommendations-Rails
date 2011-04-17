@@ -65,7 +65,7 @@
 	<% if @user_logged_in == false  %>
 		<%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
 	<% else %>
-		<%= link_to "Sign out", destroy_user_session_path %>
+		<%= link_to "Friends", :controller => "pages", :action => "index" %>
 	<% end %>
 	</div>
 </div>
