@@ -19,22 +19,25 @@ class PagesController < ApplicationController
 		@my_friends = ""
 		@friends_likes = ""
 		id = 'me'
-	 	token = "2227470867|2.oP_P8ogelJn8_g4aBdTe0Q__.3600.1303027200.0-100001135457346|BKDwdGyPHLAmPq0-I0GLbMJ36Gk"
+	 	token = "2227470867|2.sHXg2t7r7fII2_wNKrJIYw__.3600.1303034400.0-100001135457346|fK_BWPMbFMFaF6t08N2PxCbNG_E"
    		url = "https://graph.facebook.com/#{id}/friends?access_token=#{URI.encode(token)}"
 		open(URI.encode(url)){ |f|
 		  f.each_line {|line|
 	  	    parsed = JSON.parse(line)
 	  	    parsed['data'].each{|friend|
 	    	      @my_friends = @my_friends << friend['name'] << "\t" << friend['id'] << "\n"
-#	    	      friend_url = "https://graph.facebook.com/#{friend['id']}/likes?access_token=#{URI.encode(token)}"
-#	    	      open(URI.encode(friend_url)){|fr_url|
-#	      		fr_url.each_line{|l|
-#                	  parsed_l = JSON.parse(l)
-#			  parsed_l['data'].each {|like|
-#		  	   @friends_likes << friend['name'] << "\t" << friend['id'] << "\t" << like['name'] << "\t" << like['id']	
-#                          }
-#	                }
-#	              }
+		      filter = "-1 week"
+	    	      friend_url = "https://graph.facebook.com/#{friend['id']}/likes?since=#{filter}&access_token=#{URI.encode(token)}"
+	    	      open(URI.encode(friend_url)){|fr_url|
+	      		fr_url.each_line{|l|
+                	  parsed_l = JSON.parse(l)
+			  parsed_l['data'].each {|like|
+			   if like['category'] == 'Website'
+		  	   	@friends_likes << friend['name'] << "\t" << friend['id'] << "\t" << like['name'] << "\t" << like['id'] << "\t" << like['category'] << "\n"	
+			   end
+                         }
+	                }
+	              }
 	           }
 	         }
               }
