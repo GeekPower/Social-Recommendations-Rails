@@ -7,7 +7,7 @@ gem 'rails', '3.0.6'
 
 gem 'sqlite3'
 gem 'devise', :git => "http://github.com/plataformatec/devise.git"
-gem 'omniauth', '0.2.0.beta3'
+gem 'omniauth'
 
 
 # Use unicorn as the web server

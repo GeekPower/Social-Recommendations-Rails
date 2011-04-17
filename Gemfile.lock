@@ -154,7 +154,7 @@ PLATFORMS
 
 DEPENDENCIES
   devise!
-  omniauth (= 0.2.0.beta3)
+  omniauth
   rails (= 3.0.6)
   ruby-debug19
   sqlite3
