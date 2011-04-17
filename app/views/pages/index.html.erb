@@ -104,7 +104,8 @@
 	</div>
 	</a>
 </div>
-
+<% if @user_logged_in == true %>
+<% for like in @likes %>
 <div class="box_article">
 	<div class="spacer">&nbsp;</div>
     	<div class="box_likes">
@@ -117,97 +118,20 @@
         		<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
         	</div>
         	<div style="padding-top:5px;margin-left:40px;">
-        		<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.google.ro&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+        		<iframe src="http://www.facebook.com/plugins/like.php?href=<%=like.link%>&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
         	</div>
     	</div>
 	<div class="box_preview">
 		<div class="box_head">
-			G.O.P. Pushes to Deregulate Environment at State Level
+		<a href="<%=like.link%>" ><%= like["name"] %></a>
 		</div>
 		<div class="box_preview_text">
-		<p>Your movie list: </p>
-		<%#= current_user.email %>
 		</div>
 	</div>
 </div>
 <div class="clear">&nbsp;</div>
-<div class="box_article">
-	<div class="spacer">&nbsp;</div>
-	<div class="box_likes">
-		<div class="likes_mini_box round_corner">
-			SR Points <br />
-			12345
-		</div>
-		Facebook <br />
-		Tweets <br />
-	</div>
-	<div class="box_preview">
-		<div class="box_head">
-			G.O.P. Pushes to Deregulate Environment at State Level
-		</div>
-		<div class="box_preview_text">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
-		</div>
-	</div>
-</div><div class="clear">&nbsp;</div>
-<div class="box_article">
-	<div class="spacer">&nbsp;</div>
-	<div class="box_likes">
-		<div class="likes_mini_box round_corner">
-			SR Points <br />
-			12345
-		</div>
-		Facebook <br />
-		Tweets <br />
-	</div>
-	<div class="box_preview">
-		<div class="box_head">
-			G.O.P. Pushes to Deregulate Environment at State Level
-		</div>
-		<div class="box_preview_text">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
-		</div>
-	</div>
-</div><div class="clear">&nbsp;</div>
-<div class="box_article">
-	<div class="spacer">&nbsp;</div>
-	<div class="box_likes">
-		<div class="likes_mini_box round_corner">
-			SR Points <br />
-			12345
-		</div>
-		Facebook <br />
-		Tweets <br />
-	</div>
-	<div class="box_preview">
-		<div class="box_head">
-			G.O.P. Pushes to Deregulate Environment at State Level
-		</div>
-		<div class="box_preview_text">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
-		</div>
-	</div>
-</div><div class="clear">&nbsp;</div>
-<div class="box_article">
-	<div class="spacer">&nbsp;</div>
-	<div class="box_likes">
-		<div class="likes_mini_box round_corner">
-			SR Points <br />
-			12345
-		</div>
-		Facebook <br />
-		Tweets <br />
-	</div>
-	<div class="box_preview">
-		<div class="box_head">
-			G.O.P. Pushes to Deregulate Environment at State Level
-		</div>
-		<div class="box_preview_text">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt pellentesque convallis. Nam aliquet tortor id lorem dictum pharetra. Maecenas fringilla consequat bibendum. Nam a sem dolor, ut hendrerit diam. Aenean suscipit libero eu ipsum commodo in tincidunt libero pretium. Suspendisse tortor diam, ornare eu posuere vitae, placerat ac lacus. Nunc faucibus convallis varius. Morbi at sapien nec elit tempus mattis et id sem. Suspendisse enim turpis, sodales vitae ullamcorper lacinia, suscipit vel nisi.
-		</div>
-	</div>
-</div>
-
+ <%end%>
+<% end %>
 <div class="footer">
 	<a href="#"> Home</a>
 	|

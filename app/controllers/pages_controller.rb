@@ -7,6 +7,8 @@ class PagesController < ApplicationController
 	def index
 		puts "Session" + session.to_s
 
+		@likes = Links.all
+
 		@user_logged_in = false
 		if session["access_token"]
 			@user_logged_in = true
@@ -47,7 +49,7 @@ class PagesController < ApplicationController
 			   if like["company_overview"]
 				   description = like["company_overview"]
 			   else
-			   	   description = "No company overview"
+			   	   description = "No description"
 		           end
 			   if like['category'] == 'Website'
 				site_url = "https://graph.facebook.com/#{URI.encode(like['id'])}/"
