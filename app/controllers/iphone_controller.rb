@@ -16,9 +16,12 @@ class IphoneController < ApplicationController
 	@xml += '<content>'
 	@xml += 'Content of article' # Get article from SQL
 	@xml += '</content>'
-	@xml += '<date>'
-	@xml += 'Date of article' # Get date from SQL
-	@xml += '</date>'
+	@xml += '<link>'
+	@xml += 'Article link' # Get date from SQL
+	@xml += '</link>'
+	@xml += '<srpoints>'
+	@xml += '1000'
+	@xml += '</srpoints>'
   	@xml += '</article>'
     end
     @xml += endroot
