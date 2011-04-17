@@ -10,6 +10,11 @@ class PagesController < ApplicationController
 #id = get_logged_in_user()
 		puts "Session" + session.to_s
 
+		@user_logged_in = false
+		if session["access_token"]
+			@user_logged_in = true
+		end
+
 		#@my_movie.titlu = "Lord of the Rings"
 		#@my_movie.link = "http://imbd.com"
 		#if @my_movie.save
