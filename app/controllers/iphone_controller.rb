@@ -8,21 +8,27 @@ class IphoneController < ApplicationController
     endroot = '</articles>'
     @xml = header + root
     puts @xml
-    for i in 1..5 do
+    dataVector = Links.all
+    i=0
+    for data in dataVector do
+	i += 1
 	@xml += '<article>'
 	@xml += '<title>'
-	@xml += 'Title of article' # Get title from SQL
+	@xml += data['name']
 	@xml += '</title>'
 	@xml += '<date>'
-	@xml += 'Date of article' # Get date from SQL
+	@xml += data['created_at']
 	@xml += '</date>'
 	@xml += '<link>'
-	@xml += 'Article link' # Get date from SQL
+	@xml += data['link']
 	@xml += '</link>'
 	@xml += '<srpoints>'
-	@xml += '1000'		# Get points from SQL
+	@xml += '1592'
 	@xml += '</srpoints>'
   	@xml += '</article>'
+	if i == 20 then
+	  break
+	end
     end
     @xml += endroot
     puts "XML=" + @xml
