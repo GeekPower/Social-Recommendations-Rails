@@ -6,8 +6,10 @@ class IphoneController < ApplicationController
     header = '<?xml version="1.0"?>'
     root = '<articles>'
     endroot = '</articles>'
-    @xml = header + root
+    @xml = header
+    
     puts @xml
+    @xml += @xml + "<articles_number>"+Links.all.size+"</articles_number>" + root
     dataVector = Links.all
     i=0
     for data in dataVector do
